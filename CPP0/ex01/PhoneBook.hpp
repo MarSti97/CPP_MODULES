@@ -4,13 +4,7 @@
 #include <iostream>
 #include <stdlib.h>
 #include <string>
-
-class Contact
-{
-	public:
-		std::string name;
-		unsigned long nbr;
-};
+#include "Contact.hpp"
 
 class PhoneBook
 {
