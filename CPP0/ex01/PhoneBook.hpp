@@ -17,9 +17,10 @@ class PhoneBook
 	private : 
 		Contact contacts[8];
 	public :
-		Contact ADD(std::string name, unsigned long nbr);
+		// PhoneBook();
+		Contact ADD();
 };
 
-// PhoneBook::ADD(std::string name, unsigned long nbr);
+// Contact PhoneBook::ADD(void);
 
 #endif
