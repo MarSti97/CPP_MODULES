@@ -4,4 +4,5 @@
 Contact::Contact()
 {
 	index = 0;
+	flag = 0;
 }

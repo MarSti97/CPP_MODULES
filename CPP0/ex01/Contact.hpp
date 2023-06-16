@@ -14,7 +14,8 @@ class Contact
 		unsigned long nbr;
 		std::string darkest_secret;
 		int index;
-	private:
+		int flag;
+
 		Contact();
 };
 

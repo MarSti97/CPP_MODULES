@@ -4,6 +4,7 @@
 #include <iostream>
 #include <stdlib.h>
 #include <string>
+#include <iomanip>
 #include "Contact.hpp"
 
 class PhoneBook
@@ -12,7 +13,8 @@ class PhoneBook
 		Contact contacts[8];
 	public :
 		// PhoneBook();
-		Contact ADD();
+		void ADD(int i);
+		void SEARCH();
 };
 
 // Contact PhoneBook::ADD(void);

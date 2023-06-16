@@ -13,10 +13,12 @@ int main()
 		std::cin >> input;
 		if (input == "ADD")
 		{
-			NewBook.contacts[i] = NewBook.ADD();
+			NewBook.ADD(i);
 			if (i != 7)
 				i++;
 		}
+		else if (input == "SEARCH")
+			NewBook.SEARCH();
 		else if (input == "EXIT")
 			exit(0);
 		std::cout << std::endl;
