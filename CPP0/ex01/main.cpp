@@ -14,8 +14,9 @@ int main()
 		if (input == "ADD")
 		{
 			NewBook.ADD(i);
-			if (i != 7)
-				i++;
+			if (i == 7)
+				i = -1;
+			i++;
 		}
 		else if (input == "SEARCH")
 			NewBook.SEARCH();
