@@ -4,6 +4,7 @@
 #include <iostream>
 #include <stdlib.h>
 #include <string>
+#include <cstdio>
 #include <iomanip>
 #include "Contact.hpp"
 

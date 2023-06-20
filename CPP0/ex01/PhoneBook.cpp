@@ -7,7 +7,7 @@ bool blank(std::string str)
 
 	while (str[++i])
 	{
-		printf("HERE\n");
+		// printf("HERE\n");
 		if (!std::isspace(str[i]))
 			return false;
 	}
@@ -17,12 +17,13 @@ bool blank(std::string str)
 std::string	get_info(std::string msg)
 {
 	std::string data;
-	std::cout << msg;
+	std::cout << msg << std::endl;
 	while(true)
 	{
 		std::getline(std::cin, data);
-		if (blank(data))
+		if (data.find_first_not_of(" \n\t\0"))
 			std::cout << "Invalid input, try again\n" << msg;
+		// if (blank(data))
 		else
 			break ;
 	}
