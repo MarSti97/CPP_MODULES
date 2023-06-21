@@ -12,7 +12,7 @@ $(NAME) : $(OBJ) $(INC)
 	@$(CC) $(FLAGS) $(OBJ) -o $(NAME)
 	@echo DONE
 
-%.o : %.c
+%.o : %.cpp
 	@$(CC) $(FLAGS) -c $< -o $@
 
 run : 

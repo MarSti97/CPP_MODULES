@@ -5,9 +5,10 @@
 
 Account::Account(int initial_deposit)
 {
-	for (acc_begin )
-
-	_amount = ;
+	_amount = initial_deposit;
+	_nbDeposits = 0;
+	_nbWithdrawals = 0;
+	_accountIndex = _nbAccounts++;
 }
 
 void Account::_displayTimestamp(void)

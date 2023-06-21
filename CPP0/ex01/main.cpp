@@ -22,6 +22,6 @@ int main()
 			NewBook.SEARCH();
 		else if (input == "EXIT")
 			exit(0);
-		std::cout << std::endl;
+		// std::cout << std::endl;
 	}
 }

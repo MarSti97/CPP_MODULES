@@ -1,18 +1,6 @@
 #include "PhoneBook.hpp"
 #include "Contact.hpp"
 
-bool blank(std::string str)
-{
-	int i = -1;
-
-	while (str[++i])
-	{
-		if (!std::isspace(str[i]))
-			return false;
-	}
-	return true;
-}
-
 std::string	get_info(std::string msg)
 {
 	std::string data;
@@ -41,7 +29,7 @@ void	PhoneBook::ADD(int i)
 		std::getline(std::cin, contacts[i].nbr);
 	}
 	contacts[i].darkest_secret = get_info("Enter Darkest Secret: ");
-	std::cout << "Contact Added";
+	std::cout << "Contact Added" << std::endl;
 }
 
 std::string	trnc(std::string str)
@@ -60,6 +48,7 @@ std::string	trnc(std::string str)
 void	PhoneBook::SEARCH()
 {
 	std::string	chosen;
+	int index;
 
 	std::cout << "Contacts\n -------------------------------------------" << std::endl;
 	std::cout << "|" << std::setw(10) << "index" << "|" << std::setw(10) << "Name" << "|" << std::setw(10) << "LastName" << "|" << std::setw(10) << "Nickname"  << "|" << std::endl;
@@ -74,10 +63,21 @@ void	PhoneBook::SEARCH()
 	}
 	std::cout << "Choose which contact info you would like to see based on its index (0 - 7)\nIndex: ";
 	std::getline(std::cin, chosen); // need to parse and atoi so can use as index
-	
-	std::cout << "First Name: " << contacts[chosen].first_name << std::endl;
-	std::cout << "Last Name: " << contacts[chosen].last_name << std::endl;
-	std::cout << "Nickame: " << contacts[chosen].nickname << std::endl;
-	std::cout << "Number: " << contacts[chosen].nbr << std::endl;
-	std::cout << "Darkest Secret: " << contacts[chosen].darkest_secret << std::endl;
+	while (chosen.find_first_not_of("0123456789") != std::string::npos)
+	{
+		std::cout << "Invalid input, try again\n" << "Index: ";
+		std::getline(std::cin, chosen);
+	}
+	std::istringstream iss(chosen);
+	iss >> index;
+	if (index < 0 || index > 7)
+	{
+		std::cout << "Index doesn't exist" << std::endl;
+		return ;
+	}
+	std::cout << "First Name: " << contacts[index].first_name << std::endl;
+	std::cout << "Last Name: " << contacts[index].last_name << std::endl;
+	std::cout << "Nickame: " << contacts[index].nickname << std::endl;
+	std::cout << "Number: " << contacts[index].nbr << std::endl;
+	std::cout << "Darkest Secret: " << contacts[index].darkest_secret << std::endl;
 }
