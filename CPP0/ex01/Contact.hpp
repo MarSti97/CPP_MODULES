@@ -11,7 +11,7 @@ class Contact
 		std::string first_name;
 		std::string last_name;
 		std::string nickname;
-		unsigned long nbr;
+		std::string nbr;
 		std::string darkest_secret;
 		int index;
 		int flag;
