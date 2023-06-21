@@ -1,9 +1,9 @@
-SRC = PhoneBook.cpp main.cpp Contact.cpp
+SRC = Account.cpp main.cpp
 OBJ = $(SRC:%.cpp=%.o)
 FLAGS = -Wall -Werror -Wextra -std=c++98
 CC = c++
-NAME = Phonebook
-INC = PhoneBook.hpp Contact.hpp
+NAME = Testing
+INC = Account.hpp
 
 
 all : $(NAME)

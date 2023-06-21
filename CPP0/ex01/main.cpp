@@ -10,7 +10,7 @@ int main()
 	while(1)
 	{
 		std::cout << "> ";
-		std::cin >> input;
+		std::getline(std::cin, input);
 		if (input == "ADD")
 		{
 			NewBook.ADD(i);

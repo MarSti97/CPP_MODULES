@@ -7,7 +7,6 @@ bool blank(std::string str)
 
 	while (str[++i])
 	{
-		// printf("HERE\n");
 		if (!std::isspace(str[i]))
 			return false;
 	}
@@ -17,15 +16,12 @@ bool blank(std::string str)
 std::string	get_info(std::string msg)
 {
 	std::string data;
-	std::cout << msg << std::endl;
-	while(true)
+	std::cout << msg;
+	std::getline(std::cin, data);
+	while(data.find_first_not_of(" \n\t") == std::string::npos)
 	{
+		std::cout << "Invalid input, try again\n" << msg;
 		std::getline(std::cin, data);
-		if (data.find_first_not_of(" \n\t\0"))
-			std::cout << "Invalid input, try again\n" << msg;
-		// if (blank(data))
-		else
-			break ;
 	}
 	return (data);
 }
@@ -35,18 +31,16 @@ void	PhoneBook::ADD(int i)
 	contacts[i].index = i;
 	contacts[i].flag = 1;
 	contacts[i].first_name = get_info("Enter First Name: ");
-	// std::cout << "Enter First Name: ";
-	// std::cin >> contacts[i].first_name;
-	std::cout << "Enter Last Name: ";
-	std::cin >> contacts[i].last_name;
-	std::cout << "Enter Nickname: ";
-	std::cin >> contacts[i].nickname;
+	contacts[i].last_name = get_info("Enter Last Name: ");
+	contacts[i].nickname = get_info("Enter Nickname: ");
 	std::cout << "Enter Number: ";
-	std::cin >> contacts[i].nbr;
-	// while (contacts[i].nbr.find_first_not_of("0123456789") == -1)
-
-	std::cout << "Enter Darkest Secret: ";
-	std::cin >> contacts[i].darkest_secret;
+	std::getline(std::cin, contacts[i].nbr);
+	while (contacts[i].nbr.find_first_not_of("0123456789") != std::string::npos)
+	{
+		std::cout << "Invalid input, try again\n" << "Enter Number: ";
+		std::getline(std::cin, contacts[i].nbr);
+	}
+	contacts[i].darkest_secret = get_info("Enter Darkest Secret: ");
 	std::cout << "Contact Added";
 }
 
@@ -65,7 +59,7 @@ std::string	trnc(std::string str)
 
 void	PhoneBook::SEARCH()
 {
-	int	chosen;
+	std::string	chosen;
 
 	std::cout << "Contacts\n -------------------------------------------" << std::endl;
 	std::cout << "|" << std::setw(10) << "index" << "|" << std::setw(10) << "Name" << "|" << std::setw(10) << "LastName" << "|" << std::setw(10) << "Nickname"  << "|" << std::endl;
@@ -79,7 +73,8 @@ void	PhoneBook::SEARCH()
 		std::cout << " -------------------------------------------" << std::endl;
 	}
 	std::cout << "Choose which contact info you would like to see based on its index (0 - 7)\nIndex: ";
-	std::cin >> chosen;
+	std::getline(std::cin, chosen); // need to parse and atoi so can use as index
+	
 	std::cout << "First Name: " << contacts[chosen].first_name << std::endl;
 	std::cout << "Last Name: " << contacts[chosen].last_name << std::endl;
 	std::cout << "Nickame: " << contacts[chosen].nickname << std::endl;
