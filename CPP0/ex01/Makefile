@@ -5,12 +5,15 @@ CC = c++
 NAME = Phonebook
 INC = PhoneBook.hpp Contact.hpp
 
+COLOUR =\033[0;32m
+END =\033[0m
 
 all : $(NAME)
 
 $(NAME) : $(OBJ) $(INC)
 	@$(CC) $(FLAGS) $(OBJ) -o $(NAME)
-	@echo DONE
+	@echo "$(COLOUR) DONE $(END)"
+
 
 %.o : %.cpp
 	@$(CC) $(FLAGS) -c $< -o $@

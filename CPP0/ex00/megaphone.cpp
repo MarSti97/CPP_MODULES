@@ -8,7 +8,6 @@ int main(int ac, char **av)
     {
         for (int i = 2; i <= ac; i++)
         {
-            // std::cout << "HERE\n";
             int c = -1;
             while (av[i - 1][++c])
             {

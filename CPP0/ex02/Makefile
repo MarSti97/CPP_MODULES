@@ -1,22 +1,24 @@
-SRC = Account.cpp main.cpp
+SRC = Account.cpp tests.cpp
 OBJ = $(SRC:%.cpp=%.o)
 FLAGS = -Wall -Werror -Wextra -std=c++98
 CC = c++
-NAME = Testing
+NAME = Account
 INC = Account.hpp
 
+COLOUR =\033[0;32m
+END =\033[0m
 
 all : $(NAME)
 
 $(NAME) : $(OBJ) $(INC)
 	@$(CC) $(FLAGS) $(OBJ) -o $(NAME)
-	@echo DONE
+	@echo "$(COLOUR) DONE $(END)"
 
-%.o : %.c
+%.o : %.cpp
 	@$(CC) $(FLAGS) -c $< -o $@
 
 run : 
-	@./$(NAME)
+	@./$(NAME) > result.log
 
 clean : 
 	@rm -rf $(OBJ)
