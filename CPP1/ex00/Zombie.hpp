@@ -13,7 +13,7 @@ class Zombie
         Zombie(void);
         Zombie(std::string new_name);
         ~Zombie(void);
-}
+};
 
 Zombie* newZombie( std::string name );
 void randomChump( std::string name );
