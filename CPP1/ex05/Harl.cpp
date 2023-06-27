@@ -1,5 +1,15 @@
 #include "Harl.hpp"
 
+Harl::Harl(void)
+{
+	return ;
+}
+
+Harl::~Harl(void)
+{
+	return ;
+}
+
 void Harl::debug(void)
 {
 	std::cout << "[ DEBUG ]" << std::endl;
@@ -29,10 +39,21 @@ void Harl::error(void)
 
 void Harl::complain(std::string level)
 {
+	typedef std::pair<std::string, void(Harl::*)(void)> data;
+	std::list<data> pairList;
 
-	switch (1)
+	pairList.push_back(data("DEBUG", &Harl::debug));
+	pairList.push_back(data("INFO", &Harl::info));
+	pairList.push_back(data("WARNING", &Harl::warning));
+	pairList.push_back(data("ERROR", &Harl::error));
+
+	std::list<data>::iterator it;
+	for (it = pairList.begin(); it != pairList.end(); ++it)
 	{
-		case level.compare("DEBUG") :
-
+		if (it->first == level)
+		{
+			(this->*(it->second))();
+			break ;
+		}
 	}
 }

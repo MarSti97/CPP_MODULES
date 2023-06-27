@@ -2,10 +2,11 @@
 #include <fstream>
 #include <string>
 #include <cstdio>
+#include <cstring>
 
 int main(int ac, char **av)
 {
-    if (ac != 3)
+    if (ac == 4)
     {
         std::ifstream infile(av[1]);
         if (infile == NULL)
@@ -16,7 +17,7 @@ int main(int ac, char **av)
         }
         std::string filename(av[1]);
         filename += ".replace";
-        std::ofstream outfile(filename);
+        std::ofstream outfile(filename.c_str());
         if (outfile == NULL)
         {
             std::perror("Error: could not create a new file");
@@ -24,7 +25,8 @@ int main(int ac, char **av)
             return (1);
         }
         std::string buffer;
-        while (std::getline(infile, buffer))
+		std::getline(infile, buffer);
+        while (1)
         {
             size_t pos = buffer.find(av[2]);
             while (pos != std::string::npos)
@@ -33,11 +35,15 @@ int main(int ac, char **av)
                 buffer.insert(pos, av[3]);
                 pos = buffer.find(av[2]);
             }
-            outfile << buffer << std::endl;
+            outfile << buffer;
+			if (!std::getline(infile, buffer))
+				break ;
+			outfile << std::endl;
         }
         infile.close();
         outfile.close();
     }
-    std::cout << "Wrong number of arguments" << std::endl;
+	else
+    	std::cout << "Wrong number of arguments" << std::endl;
     return (0);
 }
