@@ -1,9 +1,9 @@
-SRC = main.cpp Harl.cpp
+SRC = main.cpp Fixed.cpp
 OBJ = $(SRC:%.cpp=%.o)
 FLAGS = -Wall -Werror -Wextra -std=c++98
 CC = c++
-NAME = harlFilter
-INC = Harl.hpp
+NAME = FixedPoint
+INC = Fixed.hpp
 
 COLOUR =\033[0;32m
 END =\033[0m
