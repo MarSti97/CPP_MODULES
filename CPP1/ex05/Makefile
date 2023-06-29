@@ -2,7 +2,7 @@ SRC = main.cpp Harl.cpp
 OBJ = $(SRC:%.cpp=%.o)
 FLAGS = -Wall -Werror -Wextra -std=c++98
 CC = c++
-NAME = Harl
+NAME = harl
 INC = Harl.hpp
 
 COLOUR =\033[0;32m

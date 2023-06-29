@@ -20,4 +20,5 @@ void Zombie::announce(void)
 void Zombie::giveName(std::string newName)
 {
 	name = newName;
+	std::cout << "Zombie named: "<< name  << std::endl;
 }

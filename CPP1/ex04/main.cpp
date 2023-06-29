@@ -29,11 +29,11 @@ int main(int ac, char **av)
         while (1)
         {
             size_t pos = buffer.find(av[2]);
-            while (pos != std::string::npos)
+            while ((std::string)av[2] != "" && pos != std::string::npos)
             {
                 buffer.erase(pos, strlen(av[2]));
                 buffer.insert(pos, av[3]);
-                pos = buffer.find(av[2]);
+                pos = buffer.find(av[2], pos + strlen(av[3]));
             }
             outfile << buffer;
 			if (!std::getline(infile, buffer))

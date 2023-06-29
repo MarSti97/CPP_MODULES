@@ -7,6 +7,5 @@ int main()
     Zombie* new_zombie2 = newZombie("Brian");
     new_zombie2->announce();
     randomChump("Random");
-    // new_zombie2->~Zombie();
     delete new_zombie2;
 }

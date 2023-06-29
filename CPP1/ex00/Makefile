@@ -21,6 +21,9 @@ $(NAME) : $(OBJ) $(INC)
 run : 
 	@./$(NAME)
 
+valgrind :
+	@valgrind --leak-check=full --show-leak-kinds=all ./$(NAME)
+
 clean : 
 	@rm -rf $(OBJ)
 
