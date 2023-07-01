@@ -21,13 +21,13 @@ Fixed::Fixed(const int nbr)
 Fixed::Fixed(const float flt)
 {
 	// Uncomment this to see the bit representation!
-	float number = flt;
-    std::bitset<sizeof(float) * 8> bits(*reinterpret_cast<unsigned int*>(&number));
-    std::cout << "Bit representation of float" << number << ": " << bits << std::endl;
+	// float number = flt;
+    // std::bitset<sizeof(float) * 8> bits(*reinterpret_cast<unsigned int*>(&number));
+    // std::cout << "Bit representation of float" << number << ": " << bits << std::endl;
     value = (int)roundf(flt * (1 << _bits));
     std::cout << "Float constructor called" << std::endl;
-	std::bitset<sizeof(int) * 8> bit(value);
-    std::cout << "Bit representation of conversion" << value << ": " << bit << std::endl;
+	// std::bitset<sizeof(int) * 8> bit(value);
+    // std::cout << "Bit representation of conversion" << value << ": " << bit << std::endl;
 }
 
 Fixed::~Fixed()
