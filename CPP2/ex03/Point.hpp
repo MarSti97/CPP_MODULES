@@ -17,8 +17,10 @@ class Point
         Point(const float x, const float y);
         ~Point();
 
-        
+		float	getX(void) const;
+		float	getY(void) const;
+};
 
-}
+bool bsp(Point const a, Point const b, Point const c, Point const point);
 
 #endif

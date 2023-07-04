@@ -29,11 +29,11 @@ class Fixed
         static const Fixed& max(const Fixed &one, const Fixed &other);
 
 		bool	operator > (const Fixed &fixed) const;
-		bool	operator >= (const Fixed &fixed);
-		bool	operator <= (const Fixed &fixed);
+		bool	operator >= (const Fixed &fixed) const;
+		bool	operator <= (const Fixed &fixed) const;
 		bool	operator < (const Fixed &fixed) const;
-		bool	operator == (const Fixed &fixed);
-		bool	operator != (const Fixed &fixed);
+		bool	operator == (const Fixed &fixed) const;
+		bool	operator != (const Fixed &fixed) const;
         Fixed&  operator = (const Fixed &fixed);
 		Fixed	operator + (const Fixed &fixed) const;
 		Fixed	operator - (const Fixed &fixed) const;

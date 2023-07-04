@@ -4,17 +4,14 @@
 
 Fixed::Fixed(){
     value = 0;
-    std::cout << "Default constructor called" << std::endl;
 }
 
 Fixed::Fixed(const Fixed& fixed){
-    std::cout << "Copy constructor called" << std::endl;
     value = fixed.getRawBits();
 }
 
 Fixed::Fixed(const int nbr){
     value = (nbr << _bits);
-    std::cout << "Int constructor called" << std::endl;
 }
 
 Fixed::Fixed(const float flt){
@@ -23,13 +20,11 @@ Fixed::Fixed(const float flt){
     // std::bitset<sizeof(float) * 8> bits(*reinterpret_cast<unsigned int*>(&number));
     // std::cout << "Bit representation of float" << number << ": " << bits << std::endl;
     value = (int)roundf(flt * (1 << _bits));
-    std::cout << "Float constructor called" << std::endl;
 	// std::bitset<sizeof(int) * 8> bit(value);
     // std::cout << "Bit representation of conversion" << value << ": " << bit << std::endl;
 }
 
 Fixed::~Fixed(){
-    std::cout << "Destructor called" << std::endl;
 }
 
 /* ******************* Operator assignments ******************* */
@@ -78,7 +73,6 @@ Fixed& Fixed::operator = (const Fixed &fixed){
 }
 
 Fixed Fixed::operator + (const Fixed &fixed) const{
-	// return Fixed(this->value + fixed.value);
 	return Fixed(this->toFloat() + fixed.toFloat());
 }
 
@@ -124,7 +118,6 @@ std::ostream& operator << (std::ostream& out, const Fixed &fixed){
 /* ******************* Member functions ******************* */
 
 int Fixed::getRawBits(void) const{
-    std::cout << "getRawBits member function called" << std::endl;
     return(value);
 }
 
