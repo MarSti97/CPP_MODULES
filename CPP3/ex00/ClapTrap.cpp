@@ -18,8 +18,7 @@ ClapTrap::ClapTrap(std::string newName) : name(newName)
 
 ClapTrap::ClapTrap(const ClapTrap& copy)
 {
-	if (copy.name != "")
-		this->name = copy.name;
+	this->name = copy.name;
 	Hit = copy.Hit;
 	Energy = copy.Energy;
 	Attack = copy.Attack;
@@ -33,23 +32,38 @@ ClapTrap::~ClapTrap()
 
 void ClapTrap::attack(const std::string& target)
 {
-	if (target.Hit <= 0)
+	if (this->Energy == 0)
 	{
-		std::cout << target.name << " is already dead!" << std::endl;
+		if (this->name != "")
+			std::cout << this->name << " is out of energy, cannot attack." << std::endl;
+		else
+			std::cout << "He Who Has No Name is out of energy, cannot attack." << std::endl;
 		return ;
 	}
 	std::cout << "ClapTrap ";
 	if (this->name != "")
-		std::cout << this->name;
-	else
-		std::cout << "He Who Has No Name";
-	std::cout << " attacks " << target.name << ", causing " << this->Attack << " points of damage!" << std::endl;
-	target.takeDamage(this->Attack);
+		std::cout << this->name << " tries to attack " << target << std::endl;
+	else 
+		std::cout << "He Who Has No Name tries to attack " << target << std::endl;
+	this->Energy--;
 }
 
 void	ClapTrap::takeDamage(unsigned int amount)
 {
+	if (this->Hit < 1)
+	{
+		if (this->name != "")
+			std::cout << this->name << " is already dead!" << std::endl;
+		else 
+			std::cout << "He Who Has No Name is already dead!" << std::endl;
+		return ;
+	}
 	this->Hit -= amount;
+	std::cout << "ClapTrap ";
+	if (this->name != "")
+		std::cout << this->name << " took a hit, now has " << this->Hit << " hit points left." << std::endl;
+	else
+		std::cout << "He Who Had No Name took a hit, now has " << this->Hit << " hit points left." << std::endl;
 }
 
 void	ClapTrap::beRepaired(unsigned int amount)
@@ -58,4 +72,10 @@ void	ClapTrap::beRepaired(unsigned int amount)
 		this->Hit += amount;
 	if (this->Hit > 10)
 		this->Hit = 10;
+	this->Energy--;
+	std::cout << "ClayTrap ";
+	if (this->name != "")
+		std::cout << this->name << " got repaired, it now has " << this->Hit << " hit points." << std::endl;
+	else
+		std::cout << "He Who Has No Name got repaired, it now has " << this->Hit << " hit points." << std::endl;
 }
