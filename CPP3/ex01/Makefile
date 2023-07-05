@@ -1,9 +1,9 @@
-SRC = main.cpp Fixed.cpp Point.cpp bsp.cpp
+SRC = main.cpp ClapTrap.cpp
 OBJ = $(SRC:%.cpp=%.o)
 FLAGS = -Wall -Werror -Wextra -std=c++98
 CC = c++
-NAME = triangle
-INC = Fixed.hpp Point.hpp
+NAME = battle
+INC = ClapTrap.hpp
 
 COLOUR =\033[0;32m
 END =\033[0m

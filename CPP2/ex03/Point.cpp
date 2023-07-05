@@ -21,6 +21,12 @@ Point::~Point()
 	// std::cout << "destructor called" << std::endl;
 }
 
+Point& Point::operator = (const Point &point){
+	const_cast<Fixed &> (this->x) = point.x;
+	const_cast<Fixed &> (this->y) = point.y;
+    return *this;
+}
+
 float	Point::getX(void) const
 {
 	return (this->x.toFloat());
