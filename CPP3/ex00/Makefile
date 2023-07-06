@@ -18,10 +18,10 @@ $(NAME) : $(OBJ) $(INC)
 %.o : %.cpp
 	@$(CC) $(FLAGS) -c $< -o $@
 
-run : 
+run : all
 	@./$(NAME)
 
-valgrind :
+valgrind : all
 	@valgrind --leak-check=full --show-leak-kinds=all ./$(NAME)
 
 clean : 

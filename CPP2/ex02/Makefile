@@ -18,7 +18,7 @@ $(NAME) : $(OBJ) $(INC)
 %.o : %.cpp
 	@$(CC) $(FLAGS) -c $< -o $@
 
-run : 
+run : all
 	@./$(NAME)
 
 valgrind :

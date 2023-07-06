@@ -20,19 +20,19 @@ int main(void)
 	else
 		std::cout << "This point is outside!" << std::endl;
 
-	std::cout << std::endl << "          a (10, 15)		" << std::endl;
+	std::cout << std::endl << "          e (0.5, 0.5)		" << std::endl;
 	std::cout << "          /\\	   P	" << std::endl;
 	std::cout << "         /  \\			" << std::endl;
 	std::cout << "        /    \\			" << std::endl;
 	std::cout << "       /      \\			" << std::endl;
-	std::cout << "b(0.0) ---------  c(20,0)	" << std::endl;
-	std::cout << "P = (30,30)" << std::endl;
+	std::cout << "       ---------      	" << std::endl;
+	std::cout << "f(1.5, 1.5)      g(1.0,2.5)	\n" << std::endl;
+	std::cout << "P = (1.0,2.5)" << std::endl;
 
 	Point e(0.5, 0.5);
 	Point f(1.5, 1.5);
 	Point g(1.0, 2.5);
-	Point P2(1.0, 2.5);
-	P = P2;
+	P = Point(1.0, 2.5);
 	std::cout << "P x: " << P.getX() << "\nP y: " << P.getY() << std::endl;
 	if (bsp(e, f, g, P))
 		std::cout << "This point is inside!" << std::endl;
