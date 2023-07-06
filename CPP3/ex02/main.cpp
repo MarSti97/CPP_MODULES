@@ -1,29 +1,24 @@
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int main()
 {
-    ClapTrap Steve("Steve");
     ScavTrap Carl("Carl");
-    ScavTrap noName;
+    FragTrap Anatoli("Anatoli");
 
 	std::cout << std::endl;
-    noName.attack(Carl.getName());
-    Carl.takeDamage(noName.getAttack());
+	for (int i = 0; i < 5; i++){
+    	Carl.attack(Anatoli.getName());
+    	Anatoli.takeDamage(Carl.getAttack());
+	}
+	std::cout << std::endl;
+	Anatoli.highFivesGuys();
+	Anatoli.beRepaired(1);
+	Anatoli.highFivesGuys();
 
 	std::cout << std::endl;
-    noName.attack(Steve.getName());
-    Steve.takeDamage(noName.getAttack());
-	Carl.guardCheck();
-	Carl.guardGate();
-
-	std::cout << std::endl;
-	noName = Carl;
-	noName.beRepaired(20);
-
-	std::cout << std::endl;
-	noName.guardCheck();
-	Steve.attack(noName.getName());
-	noName.takeDamage(Steve.getAttack());
-	std::cout << std::endl;
+	FragTrap BetterTolii = Anatoli;
+	BetterTolii.attack(Anatoli.getName());
+	Anatoli.takeDamage(BetterTolii.getAttack());
 }
