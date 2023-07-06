@@ -5,6 +5,8 @@
 
 class ScavTrap : public ClapTrap
 {
+	private :
+		int guardMode;
 	public :
 		ScavTrap();
 		ScavTrap(std::string newName);
@@ -13,4 +15,7 @@ class ScavTrap : public ClapTrap
 
 		ScavTrap& operator = (const ScavTrap& copy);
 		void	guardGate();
-}
+		void	guardCheck();
+};
+
+#endif

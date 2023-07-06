@@ -1,9 +1,10 @@
 #include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 int main()
 {
     ClapTrap Steve("Steve");
-    ClapTrap Carl("Carl");
+    ScavTrap Carl("Carl");
     ClapTrap noName;
 
     Steve.attack("Carl");

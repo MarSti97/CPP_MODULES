@@ -4,7 +4,7 @@
 #include <iostream>
 #include <string>
 
-#define MAX_HITS 50
+#define MAX_HITS 100
 
 class ClapTrap
 {
