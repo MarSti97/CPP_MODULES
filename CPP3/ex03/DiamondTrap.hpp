@@ -5,7 +5,7 @@
 #include "FragTrap.hpp"
 #include "ScavTrap.hpp"
 
-class DiamondTrap :  public virtual FragTrap, public virtual ScavTrap
+class DiamondTrap :  public ScavTrap, public FragTrap
 {
 	private :
 		std::string name;
@@ -17,7 +17,8 @@ class DiamondTrap :  public virtual FragTrap, public virtual ScavTrap
 
 		DiamondTrap& operator = (const DiamondTrap& copy);
 
-		void whoAmI();
+		void		whoAmI();
+		std::string	getName();
 };
 
 #endif

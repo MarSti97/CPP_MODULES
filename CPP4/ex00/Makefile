@@ -1,10 +1,10 @@
-SRC = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
+SRC = main.cpp Animal.cpp Cat.cpp Dog.cpp
 BIN = bin
 OBJ = $(SRC:%.cpp=${BIN}/%.o)
 FLAGS = -Wall -Werror -Wextra -Wshadow -std=c++98
 CC = c++
-NAME = battle
-INC = ClapTrap.hpp ScavTrap.hpp FragTrap.hpp DiamondTrap.hpp
+NAME = Zoo
+INC = Animal.hpp Cat.hpp Dog.hpp
 
 COLOUR =\033[0;32m
 END =\033[0m

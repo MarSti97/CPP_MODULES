@@ -1,22 +1,14 @@
 #include "DiamondTrap.hpp"
 
 
-DiamondTrap::DiamondTrap()
+DiamondTrap::DiamondTrap() : ClapTrap("", 100, 50, 30)
 {
-	// this->name = ClapTrap::name;
-    this->Hit = FragTrap::Hit;
-    this->Attack = FragTrap::Attack;
-    this->Energy = ScavTrap::getEnergy();
-	std::cout << "THIS SHIT: " << ScavTrap::getEnergy() << std::endl;
     std::cout << "Default DiamondTrap constructor called" << std::endl;
 }
 
-DiamondTrap::DiamondTrap(std::string newName) : ClapTrap(newName)
+DiamondTrap::DiamondTrap(std::string newName) : ClapTrap(newName + "_clap_name", 100, 50, 30)
 {
-	this->name = ClapTrap::name;
-    this->Hit = FragTrap::Hit;
-    this->Energy = ScavTrap::Energy;
-    this->Attack = FragTrap::Attack;
+    this->name = newName;
     std::cout << "DiamondTrap " << getName() << " constructor called" << std::endl;
 }
 
@@ -42,8 +34,13 @@ DiamondTrap& DiamondTrap::operator = (const DiamondTrap& copy)
 
 void DiamondTrap::whoAmI(void)
 {
-	std::cout << "Fix this function!\n" << std::endl;
-	std::cout << "Attribute Hit " << this->Hit << std::endl;
-	std::cout << "Attribute Energy " << this->Energy << std::endl;
-	std::cout << "Attribute Attack " << this->Attack << std::endl;
+	std::cout << "DiamondTrap name is " << this->name << " and ClapTrap name is " << this->ClapTrap::name << std::endl;
+}
+
+std::string DiamondTrap::getName()
+{
+	if (this->name != "")
+		return this->name;
+	else
+		return "He Who Has No Name";
 }

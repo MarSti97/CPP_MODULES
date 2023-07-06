@@ -1,21 +1,15 @@
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap() : ClapTrap()
+ScavTrap::ScavTrap() : ClapTrap("", 100, 50, 20)
 {
     this->guardMode = 0;
-    this->Hit = 100;
-    this->Energy = 50;
-    this->Attack = 20;
     std::cout << "Default ScavTrap constructor called" << std::endl;
 }
 
-ScavTrap::ScavTrap(std::string newName) : ClapTrap(newName)
+ScavTrap::ScavTrap(std::string newName) : ClapTrap(newName, 100, 50, 20)
 {
     this->guardMode = 0;
-    this->Hit = 100;
-    this->Energy = 50;
-    this->Attack = 20;
     std::cout << "ScavTrap " << getName() << " constructor called" << std::endl;
 }
 

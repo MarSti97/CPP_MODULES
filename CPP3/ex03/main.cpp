@@ -2,12 +2,22 @@
 
 int main()
 {
-    DiamondTrap Mario;
+    DiamondTrap Mario("Mario");
+    DiamondTrap Luigi("Luigi");
+	std::cout << std::endl;
 	Mario.whoAmI();
+	Luigi.whoAmI();
+	std::cout << std::endl;
+	Luigi.attack("Mario");
+	Mario.takeDamage(Luigi.getAttack());
+	std::cout << std::endl;
+	Mario.highFivesGuys();
+	Luigi.guardGate();
+	std::cout << std::endl;
+
 
     // FragTrap Anatoli("Anatoli");
 
-	// std::cout << std::endl;
 	// for (int i = 0; i < 5; i++){
     // 	Carl.attack(Anatoli.getName());
     // 	Anatoli.takeDamage(Carl.getAttack());
