@@ -1,7 +1,7 @@
 #include "DiamondTrap.hpp"
 
 
-DiamondTrap::DiamondTrap() : ClapTrap("", 100, 50, 30)
+DiamondTrap::DiamondTrap() : ClapTrap("default", 100, 50, 30)
 {
     std::cout << "Default DiamondTrap constructor called" << std::endl;
 }

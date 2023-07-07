@@ -39,3 +39,13 @@ void Animal::makeSound() const
 {
 	std::cout << this->getType() << " makes a generic animal sound. \"YEEEEEET\"!" << std::endl;
 }
+
+void	Animal::haveIdea(std::string newIdea) const
+{
+	std::cout << "Animal has no brain... how can think about " << newIdea << "." << std::endl;
+}
+
+void	Animal::thinking() const
+{
+	std::cout << "Animal has no brain... sooooo no ideas either" << std::endl;
+}

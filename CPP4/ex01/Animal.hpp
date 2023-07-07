@@ -17,6 +17,8 @@ class Animal
         Animal& operator = (const Animal& copy);
 
         virtual void    makeSound() const;
+        virtual void    haveIdea(std::string newIdea) const;
+        virtual void    thinking() const;
 		std::string		getType() const;
 };
 

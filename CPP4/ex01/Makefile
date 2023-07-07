@@ -1,10 +1,10 @@
-SRC = main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp
+SRC = main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp Brain.cpp
 BIN = bin
 OBJ = $(SRC:%.cpp=${BIN}/%.o)
 FLAGS = -Wall -Werror -Wextra -Wshadow -std=c++98
 CC = c++
 NAME = Zoo
-INC = Animal.hpp Cat.hpp Dog.hpp WrongAnimal.hpp WrongCat.hpp
+INC = Animal.hpp Cat.hpp Dog.hpp WrongAnimal.hpp WrongCat.hpp Brain.hpp
 
 COLOUR =\033[0;32m
 END =\033[0m
