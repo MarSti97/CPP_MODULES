@@ -1,10 +1,10 @@
-SRC = main.cpp Animal.cpp Cat.cpp Dog.cpp Brain.cpp
+SRC = main.cpp AMateria.cpp Ice.cpp Cure.cpp Character.cpp MaterialSource.cpp
 BIN = bin
 OBJ = $(SRC:%.cpp=${BIN}/%.o)
 FLAGS = -Wall -Werror -Wextra -Wshadow -std=c++98
 CC = c++
-NAME = Zoo
-INC = Animal.hpp Cat.hpp Dog.hpp Brain.hpp
+NAME = Interface
+INC = AMateria.hpp Ice.hpp Cure.hpp Character.hpp MaterialSource.hpp
 
 COLOUR =\033[0;32m
 END =\033[0m
