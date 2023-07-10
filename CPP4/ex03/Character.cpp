@@ -56,7 +56,7 @@ void Character::unequip(int idx)
 	std::cout << "Unequiped " << getType() << std::endl;
 }
 
-void Character::use(int idx, Character& target)
+void Character::use(int idx, ICharacter& target)
 {
 	this->inventory[idx].use(target);
 }

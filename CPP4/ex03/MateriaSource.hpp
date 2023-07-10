@@ -2,8 +2,10 @@
 # define MATERIASOURCE_HPP
 
 #include "AMateria.hpp"
+#include "IMateriaSource.hpp"
 
-class MateriaSource
+
+class MateriaSource : public IMateriaSource
 {
 	public:
 		MateriaSource();
