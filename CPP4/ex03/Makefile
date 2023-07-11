@@ -1,10 +1,10 @@
-SRC = main.cpp AMateria.cpp Ice.cpp Cure.cpp Character.cpp MaterialSource.cpp
+SRC = main.cpp AMateria.cpp Ice.cpp Cure.cpp Character.cpp MateriaSource.cpp
 BIN = bin
 OBJ = $(SRC:%.cpp=${BIN}/%.o)
-FLAGS = -Wall -Werror -Wextra -Wshadow -std=c++98
+FLAGS = -Wall -Werror -Wextra -Wshadow -g -std=c++98
 CC = c++
 NAME = Interface
-INC = AMateria.hpp Ice.hpp Cure.hpp Character.hpp MaterialSource.hpp
+INC = AMateria.hpp Ice.hpp Cure.hpp Character.hpp MateriaSource.hpp ICharacter.hpp IMateriaSource.hpp
 
 COLOUR =\033[0;32m
 END =\033[0m

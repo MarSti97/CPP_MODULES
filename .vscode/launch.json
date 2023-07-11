@@ -8,7 +8,7 @@
 			"type": "lldb",
 			"request": "launch",
 			"name": "Debug",
-			"program": "/nfs/homes/mstiedl/Desktop/CPP_MODULES/CPP4/ex01/Zoo",
+			"program": "/mnt/c/Users/marce/Desktop/Code/42/C++/CPP4/ex03/Interface",
 			"args": [],
 			"cwd": "${workspaceFolder}"
 		}

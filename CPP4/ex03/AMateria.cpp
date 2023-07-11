@@ -5,14 +5,14 @@ AMateria::AMateria()
 	std::cout << "AMateria default constructor called." << std::endl;
 }
 
-AMateria::AMateria(std::string const & type) : type(type)
+AMateria::AMateria(std::string const & type) : _type(type)
 {
 	std::cout << "AMateria type (" << getType() << ") constructor called." << std::endl;
 }
 
 AMateria::AMateria(const AMateria& copy)
 {
-	const_cast<std::string &> (this->type) = copy.type; // do i need... ?
+	const_cast<std::string &> (this->_type) = copy._type; // do i need... ?
 	std::cout << "AMateria copy constructor called." << std::endl;
 }
 
@@ -24,30 +24,27 @@ AMateria::~AMateria()
 AMateria& AMateria::operator = (const AMateria& copy)
 {
 	if (this != &copy)
-		const_cast<std::string &> (this->type) = copy.type; // do i need... ?
+		const_cast<std::string &> (this->_type) = copy._type; // do i need... ?
 	return *this;
 }
 
 std::string const& AMateria::getType() const
 {
-	return this->type;
+	return this->_type;
 }
 
-// AMateria* AMateria::clone() const
-// {
-// 	std::cout << "Pure Virtual Function of the Abstract Class" << std::endl;
-// 	AMateria clone;
-// 	return *clone;
-// }
-
-// void AMateria::use(ICharacter& target)
-// {
-// 	std::cout << "No idea hat the implomentation of this is" << std::endl;
-// }
-
-bool	AMateria::exist()
+void AMateria::use(ICharacter& target)
 {
-	if (this->type != "")
-		return true;
-	return false;
+	(void)target;
+	std::cout << "No idea what the implomentation of this is" << std::endl;
 }
+
+// bool	AMateria::exist()
+// {
+// 	if (this->getType().empty())
+// 	{
+// 		std::cerr << "HERE??" << std::endl;
+// 		return true;
+// 	}
+// 	return false;
+// }
