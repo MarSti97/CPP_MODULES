@@ -36,8 +36,9 @@ Brain::~Brain()
 void Brain::addIdea(const std::string idea)
 {
 	int i = 0;
-
-	while (this->ideas[i] != "" && i != 100)
+	if (idea == "")
+		return ;
+	while (this->ideas[i] != "" && i < 100)
 		i++;
 	this->ideas[i] = idea;
 }

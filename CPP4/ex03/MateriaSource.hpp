@@ -4,7 +4,7 @@
 #include "AMateria.hpp"
 #include "IMateriaSource.hpp"
 
-extern AMateria** dropped;
+extern AMateria* dropped[100];
 
 class MateriaSource : public IMateriaSource
 {
@@ -23,7 +23,7 @@ class MateriaSource : public IMateriaSource
 		void				clearLearnt();
 };
 
-void	addDropped(AMateria* item);
-void	clearDropped();
+void				addDropped(AMateria* item);
+void				clearDropped();
 
 #endif

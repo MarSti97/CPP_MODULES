@@ -1,12 +1,12 @@
 #include "MateriaSource.hpp"
 
-AMateria** dropped = NULL;
+AMateria* dropped[100];
 
 MateriaSource::MateriaSource()
 {	
 	for (int i = 0; i < 4; i++)
 		this->learnt[i] = NULL;
-	std::cout << "default MateriaSource constructor called." << std::endl;
+	// std::cout << "default MateriaSource constructor called." << std::endl;
 }
 
 MateriaSource::MateriaSource(const MateriaSource& copy)
@@ -18,13 +18,13 @@ MateriaSource::MateriaSource(const MateriaSource& copy)
 		this->learnt[i] = copy.learnt[i]->clone();
 		i++;
 	}
-	std::cout << "MateriaSource copy constructor called." << std::endl;
+	// std::cout << "MateriaSource copy constructor called." << std::endl;
 }
 
 MateriaSource::~MateriaSource()
 {
 	this->clearLearnt();
-	std::cout << "MateriaSource destructor called." << std::endl;
+	// std::cout << "MateriaSource destructor called." << std::endl;
 }
 
 MateriaSource& MateriaSource::operator = (const MateriaSource& copy)
@@ -46,9 +46,15 @@ void MateriaSource::learnMateria(AMateria* data)
 	int i = 0;
 	while (i < 4 && this->learnt[i])
 			i++;
+	if (i == 4){
+		delete data;
+		std::cout << "Learning slots are full" << std::endl;
+		return ;
+	}
 	this->learnt[i] = data->clone();
 	delete data;
 	std::cout << this->learnt[i]->getType() << " added to learnt MateriaSource." << std::endl;
+	// this->showLearnt();
 }
 
 AMateria* MateriaSource::createMateria(std::string const & type)
@@ -58,8 +64,8 @@ AMateria* MateriaSource::createMateria(std::string const & type)
 	{
 		if (this->learnt[i]->getType() == type)
 		{
+			std::cout << "Creating Materia...  " << this->learnt[i]->getType() << std::endl;
 			return this->learnt[i]->clone();
-			std::cout << "Materia created : " << this->learnt[i]->getType() << std::endl;
 		}
 		i++;
 	}
@@ -81,17 +87,18 @@ void MateriaSource::showLearnt()
 
 void MateriaSource::clearLearnt()
 {
-	int i = 0;
-	while(i < 4 && this->learnt[i])
-		delete this->learnt[i++];
-	std::cout << "Learnt cleared" << std::endl;
+	for (int i = 0; i < 4; i++)
+	{
+		if (this->learnt[i] != NULL)
+			delete this->learnt[i];
+	}
+	// std::cout << "Learnt cleared" << std::endl;
 }
 
 void	addDropped(AMateria* item)
 {
 	int i = 0;
-
-	if (dropped == NULL){
+	if (!dropped[0]){
 		dropped[0] = item;
 		dropped[1] = NULL;
 	}
@@ -107,7 +114,6 @@ void	clearDropped()
 {
 	int i = 0;
 	while (dropped[i]){
-		// delete dropped[i++];
-		std::cout << dropped[i++]->getType() << " THIS" << std::endl;
+		delete dropped[i++];
 	}
 }

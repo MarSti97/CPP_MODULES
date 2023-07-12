@@ -59,4 +59,13 @@ int main()
 	copy.thinking();
 	std::cout << std::endl;
 	return 0;
+	// Dog* dog = new Dog();
+	// dog->haveIdea("I WANNA FUCK");
+	// dog->thinking();
+	// Dog* dog2 = new Dog(*dog);
+	// dog2->haveIdea("I Dont want that shit");
+	// dog2->thinking();
+	// dog->thinking();
+	// delete dog;
+	// delete dog2;
 }

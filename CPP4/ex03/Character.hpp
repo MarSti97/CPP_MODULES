@@ -24,4 +24,5 @@ class Character : public ICharacter
 		void				clearInventory();
 };
 
+
 #endif
