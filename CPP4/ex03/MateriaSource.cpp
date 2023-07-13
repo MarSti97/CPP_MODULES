@@ -54,7 +54,7 @@ void MateriaSource::learnMateria(AMateria* data)
 	this->learnt[i] = data->clone();
 	delete data;
 	std::cout << this->learnt[i]->getType() << " added to learnt MateriaSource." << std::endl;
-	// this->showLearnt();
+	this->showLearnt();
 }
 
 AMateria* MateriaSource::createMateria(std::string const & type)
@@ -90,7 +90,10 @@ void MateriaSource::clearLearnt()
 	for (int i = 0; i < 4; i++)
 	{
 		if (this->learnt[i] != NULL)
+		{
 			delete this->learnt[i];
+			this->learnt[i] = NULL;
+		}
 	}
 	// std::cout << "Learnt cleared" << std::endl;
 }
