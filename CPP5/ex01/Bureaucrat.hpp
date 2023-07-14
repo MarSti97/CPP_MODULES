@@ -4,6 +4,9 @@
 #include <iostream>
 #include <string>
 #include <exception>
+#include "Form.hpp"
+
+class Form;
 
 class Bureaucrat
 {
@@ -19,9 +22,10 @@ class Bureaucrat
 		Bureaucrat& operator = (const Bureaucrat& copy);
 
 		std::string const	getName() const;
-		int					getGrade() const;
+		unsigned int		getGrade() const;
 		void				incrementGrade(); 
-		void				decrementGrade(); 
+		void				decrementGrade();
+		void				signForm(const Form& form) const;
 
 	class GradeTooLowException : public std::exception
 	{

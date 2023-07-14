@@ -1,9 +1,9 @@
 #ifndef FORM_HPP
 # define FORM_HPP
 
-#include <iostream>
-#include <string>
-#include <exception>
+#include "Bureaucrat.hpp"
+
+class Bureaucrat;
 
 class Form
 {
@@ -11,17 +11,20 @@ class Form
 		std::string const	name;
 		bool				_signed;
 		unsigned int const	grade_sign;
-		unsigned int const	grade_required;
+		unsigned int const	grade_exec;
 	public :
 		Form();
-		Form(std::string newName, int newGrade);
+		Form(std::string newName, int signGrade, int execGrade);
 		Form(const Form& copy);
 		~Form();
 
 		Form& operator = (const Form& copy);
 
 		std::string const	getName() const;
-		int					getGrade() const;
+		unsigned int		getSignGrade() const;
+		unsigned int		getExecGrade() const;
+		bool				getSign() const;
+		void				beSigned(const Bureaucrat& bur);
 
 	class GradeTooLowException : public std::exception
 	{

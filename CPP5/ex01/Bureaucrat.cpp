@@ -31,8 +31,11 @@ Bureaucrat::~Bureaucrat()
 
 Bureaucrat& Bureaucrat::operator = (const Bureaucrat& copy)
 {
-	const_cast<std::string&> (this->name) = copy.name;
-	this->grade = copy.grade;
+	if (this != &copy)
+	{
+		const_cast<std::string&> (this->name) = copy.name;
+		this->grade = copy.grade;
+	}
 	std::cout << "copy assignment operator" << std::endl;
 	return *this;
 }
@@ -42,7 +45,7 @@ std::string const Bureaucrat::getName() const
 	return this->name;
 }
 
-int Bureaucrat::getGrade() const
+unsigned int Bureaucrat::getGrade() const
 {
 	return this->grade;
 }
@@ -63,6 +66,14 @@ void Bureaucrat::decrementGrade()
 	else
 		throw GradeTooLowException(); 
 	std::cout << "Decremented" << std::endl;
+}
+
+void	Bureaucrat::signForm(const Form& form) const
+{
+	if (form.getSign())
+		std::cout << this->getName() << " signed form " << form.getName() << "." << std::endl;
+	else
+        std::cout << this->getName() << "'s grade is not high enough to sign form " << form.getName() << "." << std::endl;
 }
 
 std::ostream& operator << (std::ostream& out, const Bureaucrat& bur)

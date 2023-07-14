@@ -1,43 +1,21 @@
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int main()
 {
-	Bureaucrat patrick;
+	Bureaucrat jim("Jim", 25);
+	Form f1;
 
 	try
 	{
-		Bureaucrat frank("Frank", 5);
-		Bureaucrat steve("Steve", 1);
-		patrick = Bureaucrat("Patrick", 151);
+		Form f2("F2", 100, 100);
+		Form f3("F3", 1, 1);
+		f1 = Form("F1", 151, 1);
 	}
 	catch (std::exception& e){
 		std::cerr << e.what() << std::endl;
 	}
-	std::cout << std::endl;
-	std::cout << patrick << std::endl;
-	std::cout << std::endl;
-	std::cout << "--------- Increment and Decrement Tests ---------" << std::endl;
-	// Bureaucrat craig;
-	Bureaucrat burt;
-	std::cout << std::endl;
-	try
-	{
-		// craig = Bureaucrat("Craig", 150);
-		// craig.decrementGrade();
-		// std::cout << craig << std::endl;
-		burt = Bureaucrat("Burt", 1);
-		burt.decrementGrade();
-		std::cout << burt << std::endl;
-		burt.incrementGrade();
-		std::cout << burt << std::endl;
-		burt.incrementGrade();
-		std::cout << burt << std::endl;
-	}
-	catch (std::exception& e){
-		std::cerr << e.what() << std::endl;
-	}
-	std::cout << std::endl;
-	// std::cout << craig << std::endl;
-	std::cout << burt << std::endl;
+
+	std::cout << f1 << std::endl;
 	return 0;
 }
