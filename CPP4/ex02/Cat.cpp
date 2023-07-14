@@ -23,6 +23,7 @@ Cat::~Cat()
 Cat& Cat::operator = (const Cat& copy)
 {
 	if (this != &copy){
+		delete CatBrain;
 		CatBrain = new Brain(*(copy.CatBrain));
 		this->type = copy.type;
 	}
@@ -31,7 +32,7 @@ Cat& Cat::operator = (const Cat& copy)
 
 void Cat::makeSound() const
 {
-	std::cout << "\"Meow Meow mf!\"" << std::endl;
+	std::cout << "\"Meow Meow!\"" << std::endl;
 }
 
 void	Cat::haveIdea(std::string newIdea) const

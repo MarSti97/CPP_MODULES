@@ -5,11 +5,6 @@ Cure::Cure() : AMateria("cure")
 	// std::cout << "Cure default constructor called." << std::endl;
 }
 
-Cure::Cure(std::string const & type) : AMateria(type)
-{
-	// std::cout << "Cure type (" << getType() << ") constructor called." << std::endl;
-}
-
 Cure::Cure(const Cure& copy) : AMateria(copy.getType())
 {
 	// std::cout << "Cure copy constructor called." << std::endl;

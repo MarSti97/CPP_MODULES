@@ -1,4 +1,5 @@
 #include "MateriaSource.hpp"
+#include <climits>
 
 AMateria* dropped[100];
 
@@ -100,23 +101,30 @@ void MateriaSource::clearLearnt()
 
 void	addDropped(AMateria* item)
 {
+	static unsigned int i;
+
+	if (dropped[i % 100])
+		delete dropped[i % 100];
+	dropped[i % 100] = item;
+	i++;
+	if (i == UINT_MAX)
+		i = 0;
+}
+
+void	show_dropped()
+{
+	std::cout << "List of dropped items:" << std::endl;
 	int i = 0;
-	if (!dropped[0]){
-		dropped[0] = item;
-		dropped[1] = NULL;
-	}
-	else {
-		while (dropped[i])
-			i++;
-		dropped[i] = item;
-		dropped[i + 1] = NULL;
+	while (i < 100 && dropped[i]){
+		std::cout << i + 1 << ". " << dropped[i]->getType() << std::endl;
+		i++;
 	}
 }
 
 void	clearDropped()
 {
 	int i = 0;
-	while (dropped[i]){
+	while (i < 100 && dropped[i]){
 		delete dropped[i++];
 	}
 }

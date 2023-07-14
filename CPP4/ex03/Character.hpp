@@ -13,7 +13,7 @@ class Character : public ICharacter
 		Character();
 		Character(std::string newName);
 		Character(const Character& copy);
-		~Character();
+		virtual ~Character();
 
 		Character& operator = (const Character& copy);
 

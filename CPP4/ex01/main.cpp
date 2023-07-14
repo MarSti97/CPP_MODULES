@@ -33,14 +33,6 @@ int main()
 		for (int j = 0; j < size; j++)
 			arr[j]->makeSound();
 
-		// std::cout << std::endl;
-		// for (int k = 0; k < size; k++)
-		// 	arr[k]->haveIdea("POO");
-
-		// std::cout << std::endl;
-		// for (int p = 0; p < size; p++)
-		// 	arr[p]->thinking();
-
 		std::cout << std::endl;
 		for (int f = 0; f < size; f++)
 			delete arr[f];
@@ -48,24 +40,30 @@ int main()
 	std::cout << "\n----------- Deep Copy Tests -----------" << std::endl;
 	Cat kitty;
 	kitty.haveIdea("Sleeeeeeep.....");
+
 	std::cout << std::endl;
 	Cat copy = kitty;
 	kitty.haveIdea("Trying to think of a new idea!");
 	copy.thinking();
-	copy.haveIdea("GIVE ME FOOD HUMAN!");
+	for (int i = 0; i < 100; i++)
+		copy.haveIdea("GIVE ME FOOD HUMAN!");
+
 	std::cout << std::endl;
 	kitty.thinking();
+	
 	std::cout << std::endl;
 	copy.thinking();
+	// kitty = copy;
+	// kitty.thinking();
 	std::cout << std::endl;
-	return 0;
 	// Dog* dog = new Dog();
-	// dog->haveIdea("I WANNA FUCK");
+	// dog->haveIdea("hello");
 	// dog->thinking();
 	// Dog* dog2 = new Dog(*dog);
-	// dog2->haveIdea("I Dont want that shit");
+	// dog2->haveIdea("bye bye");
 	// dog2->thinking();
 	// dog->thinking();
 	// delete dog;
 	// delete dog2;
+	return 0;
 }

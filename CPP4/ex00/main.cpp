@@ -26,13 +26,16 @@ int main()
 	std::cout << "Wrong tests\n" << std::endl;
 	const WrongAnimal* meta2 = new WrongAnimal();
 	const WrongAnimal* i2 = new WrongCat();
+	const WrongCat * cat = new WrongCat();
 	std::cout << std::endl;
 	std::cout << i2->getType() << " " << std::endl;
 	i2->makeSound();
 	meta2->makeSound();
+	cat->makeSound();
 	
 	std::cout << std::endl;
 	delete meta2;
 	delete i2;
+	delete cat;
 	return 0;
 }

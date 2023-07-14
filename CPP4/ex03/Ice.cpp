@@ -5,11 +5,6 @@ Ice::Ice() : AMateria("ice")
 	// std::cout << "Ice default constructor called." << std::endl;
 }
 
-Ice::Ice(std::string const & type) : AMateria(type)
-{
-	// std::cout << "Ice type (" << getType() << ") constructor called." << std::endl;
-}
-
 Ice::Ice(const Ice& copy) : AMateria(copy.getType())
 {
 	// std::cout << "Ice copy constructor called." << std::endl;

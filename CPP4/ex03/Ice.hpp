@@ -7,15 +7,13 @@ class Ice : public AMateria
 {
 	public :
 		Ice();
-		Ice(std::string const & type);
 		Ice(const Ice& copy);
-		~Ice();
+		virtual ~Ice();
 		
 		Ice& operator = (const Ice& copy);
 
-		// std::string const&	getType() const;
-		Ice*				clone() const;
-		void				use(ICharacter& target);
+		Ice*	clone() const;
+		void	use(ICharacter& target);
 };
 
 #endif

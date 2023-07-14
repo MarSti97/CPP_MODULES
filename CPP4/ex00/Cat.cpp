@@ -26,5 +26,5 @@ Cat& Cat::operator = (const Cat& copy)
 
 void Cat::makeSound() const
 {
-	std::cout << "\"Meow Meow mf\"!" << std::endl;
+	std::cout << "\"Meow Meow\"!" << std::endl;
 }

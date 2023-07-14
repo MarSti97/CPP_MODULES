@@ -13,17 +13,18 @@ class MateriaSource : public IMateriaSource
 	public:
 		MateriaSource();
 		MateriaSource(const MateriaSource& copy);
-		~MateriaSource();
+		virtual ~MateriaSource();
 
 		MateriaSource& operator = (const MateriaSource& copy);
 
-		virtual void		learnMateria(AMateria*);
-		virtual AMateria*	createMateria(std::string const & type);
-		void				showLearnt();
-		void				clearLearnt();
+		void		learnMateria(AMateria*);
+		AMateria*	createMateria(std::string const & type);
+		void		showLearnt();
+		void		clearLearnt();
 };
 
-void				addDropped(AMateria* item);
-void				clearDropped();
+void	addDropped(AMateria* item);
+void	clearDropped();
+void	show_dropped();
 
 #endif

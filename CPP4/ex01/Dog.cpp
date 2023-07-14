@@ -23,6 +23,7 @@ Dog::~Dog()
 Dog& Dog::operator = (const Dog& copy)
 {
 	if (this != &copy){
+		delete DogBrain;
 		DogBrain = new Brain(*(copy.DogBrain));
 		this->type = copy.type;
 	}
