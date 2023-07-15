@@ -59,6 +59,10 @@ bool    Form::getSign() const
 
 void	Form::beSigned(const Bureaucrat& bur)
 {
+	if (this->getSign()){
+		std::cout << "This form is already signed" << std::endl;
+		return ;
+	}
     if (bur.getGrade() <= this->grade_sign)
         this->_signed = true;
     bur.signForm(*this);
@@ -66,7 +70,7 @@ void	Form::beSigned(const Bureaucrat& bur)
 
 std::ostream& operator << (std::ostream& out, const Form& form)
 {
-	out << form.getName() << ", form is " << (form.getSign() ? "" : "not") << " signed, signed grade " << form.getSignGrade() << ", execute grade " << form.getExecGrade() << std::endl;
+	out << form.getName() << ", form " << (form.getSign() ? "is" : "is not") << " signed, signed grade " << form.getSignGrade() << ", execute grade " << form.getExecGrade() << std::endl;
 	return out;
 }
 
