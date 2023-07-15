@@ -40,6 +40,20 @@ class AForm
 			GradeTooHighException() {}
 			virtual const char* what() const throw();
 	};
+
+	class NotSignedForm : public std::exception
+	{
+		public :
+			NotSignedForm() {}
+			virtual const char* what() const throw();
+	};
+
+	class GradeTooLowToExec : public std::exception
+	{
+		public :
+			GradeTooLowToExec() {}
+			virtual const char* what() const throw();
+	};
 };
 
 std::ostream& operator << (std::ostream& out, const AForm& form);

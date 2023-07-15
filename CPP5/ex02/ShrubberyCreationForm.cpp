@@ -1,16 +1,16 @@
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm() : AForm("Nameless", this->sign_val, this->exec_val), target("*undefined*")
+ShrubberyCreationForm::ShrubberyCreationForm() : AForm("Generic Form", 145, 137), target("*undefined*")
 {
 	std::cout << "Shrub default constructer" << std::endl; 
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string newTarget) : AForm("Form_" + newTarget, this->sign_val, this->exec_val), target(newTarget)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string newTarget) : AForm("Form_" + newTarget, 145, 137), target(newTarget)
 {
 	std::cout << "Shrub constructer" << std::endl; 
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& copy) : AForm("Form_" + copy.target, copy.sign_val, copy.exec_val), target(copy.target)
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& copy) : AForm("Form_" + copy.target, 145, 137), target(copy.target)
 {
 	std::cout << "Shrub copy constructer" << std::endl;
 }
@@ -33,22 +33,12 @@ std::string const	ShrubberyCreationForm::targetName() const
 	return	this->target;
 }
 
-unsigned int	ShrubberyCreationForm::getSignVal() const
-{
-	return this->sign_val;
-}
-
-unsigned int	ShrubberyCreationForm::getExecVal() const
-{
-	return this->exec_val;
-}
-
 void	ShrubberyCreationForm::execute(Bureaucrat const& executor) const
 {
 	if (!this->getSign())
-		throw NotSignedForm();
-	else if (this->getExecVal() >= executor.getGrade())
-		throw NotGoodEnoughToExec();
+		throw AForm::NotSignedForm();
+	else if (this->getExecGrade() < executor.getGrade())
+		throw AForm::GradeTooLowToExec();
 	else
 	{
         std::ofstream file(this->targetName() + "_shrubbery");
@@ -56,9 +46,9 @@ void	ShrubberyCreationForm::execute(Bureaucrat const& executor) const
         {
             std::perror("Error: could not create a new file");
             file.close();
-            return (1);
+            return ;
         }
-		file << "              ,@@@@@@@, " << std::endl;
+		file << "\n              ,@@@@@@@, " << std::endl;
 		file << "      ,,,.   ,@@@@@@/@@,  .oo8888o. " << std::endl;
 		file << "   ,&%%&%&&%,@@@@@/@@@@@@,8888\\88/8o " << std::endl;
 		file << "  ,%&\\%&&%&&%,@@@\\@@@/@@@88\\88888/88' " << std::endl;
@@ -67,7 +57,7 @@ void	ShrubberyCreationForm::execute(Bureaucrat const& executor) const
 		file << "  `&%\\ ` /%&'    |.|        \\ '|8' " << std::endl;
 		file << "      |o|        | |         | | " << std::endl;
 		file << "      |.|        | |         | | " << std::endl;
-		file << "   \\/ ._\\//_/__/  ,\\_//__\\/.  \\_//__/_ " << std::endl;
+		file << "    \\/ ._\\//_/__/  ,\\_//__\\_/.  \\_//__/_ " << std::endl;
 		file.close();
 	}
 }

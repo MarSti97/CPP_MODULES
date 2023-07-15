@@ -1,25 +1,27 @@
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 int main()
 {
 	Bureaucrat jim; 
-	Form f1;
+	AForm* home =  new ShrubberyCreationForm("home");
 
 	try
 	{
 		jim = Bureaucrat("Jim", 25);
-		Form f2("F2", 100, 100);
-		Form f3("F3", 0, 1);
-		f1 = Form("F1", 151, 1);
+		home->execute(jim);
+		// f1.beSigned(jim);
 	}
 	catch (std::exception& e){
 		std::cerr << e.what() << std::endl;
 	}
-
-	f1 = Form("F1", 75, 75);
-	f1.beSigned(jim);
-	f1.beSigned(jim);
-	std::cout << f1 << std::endl;
+	std::cout << home << std::endl;
+	jim.executeForm(*home);
+	home->beSigned(jim);
+	jim.executeForm(*home);
+	delete home;
 	return 0;
 }

@@ -2,13 +2,12 @@
 # define SHRUBBERYCREATIONFORM_HPP
 
 #include "Bureaucrat.hpp"
+#include <fstream>
 
 class ShrubberyCreationForm : public AForm
 {
 	private :
 		std::string			target;
-		static const int	sign_val = 145;
-		static const int	exec_val = 137;
 	public :
 		ShrubberyCreationForm();
 		ShrubberyCreationForm(std::string newTarget);
@@ -18,8 +17,6 @@ class ShrubberyCreationForm : public AForm
 		ShrubberyCreationForm& operator = (const ShrubberyCreationForm& copy);
 
 		std::string const	targetName() const;
-		unsigned int		getSignVal() const;
-		unsigned int		getExecVal() const;
 		void		execute(Bureaucrat const& executor) const;
 };
 
