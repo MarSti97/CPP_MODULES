@@ -21,7 +21,7 @@ AForm::AForm(const AForm& copy) : name(copy.name), _signed(copy._signed), grade_
 
 AForm::~AForm()
 {
-    std::cout << "destructor" << std::endl;
+    std::cout << "AForm destructor" << std::endl;
 }
 
 AForm& AForm::operator = (const AForm& copy)
