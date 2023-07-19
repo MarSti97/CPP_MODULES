@@ -1,4 +1,4 @@
-SRC = main.cpp Base.cpp A.cpp B.cpp C.cpp
+SRC = main.cpp Base.cpp
 BIN = bin
 OBJ = $(SRC:%.cpp=${BIN}/%.o)
 FLAGS = -Wall -Werror -Wextra -Wshadow -g -std=c++98

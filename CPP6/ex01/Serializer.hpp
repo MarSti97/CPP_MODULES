@@ -4,11 +4,7 @@
 #include <iostream>
 #include <string>
 #include <cstdint>
-
-struct Data{
-	int i;
-	char c;
-};
+#include "data.hpp"
 
 class Serializer
 {
@@ -22,6 +18,5 @@ class Serializer
         uintptr_t	serialize(Data* ptr);
 		Data*		deserialize(uintptr_t raw);
 };
-
 
 #endif

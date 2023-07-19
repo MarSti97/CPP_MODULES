@@ -5,5 +5,15 @@
 
 int main()
 {
-	
+	std::srand(std::time(0));
+    {
+        std::cout << "----- Basic test -----" << std::endl;
+        Base* random = generate();
+        identify(random);
+    }
+    {
+        std::cout << "----- Reference test -----" << std::endl;
+        Base* random2 = generate();
+        identify(random2);
+    }
 }

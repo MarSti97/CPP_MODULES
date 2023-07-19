@@ -3,13 +3,6 @@
 
 #include "Base.hpp"
 
-class C : public Base
-{
-	private :
-		const std::string type;
-	public :
-		C();
-		~C();
-};
+class C : public Base {};
 
 #endif
