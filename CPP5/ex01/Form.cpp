@@ -70,7 +70,7 @@ void	Form::beSigned(const Bureaucrat& bur)
 
 std::ostream& operator << (std::ostream& out, const Form& form)
 {
-	out << form.getName() << ", form " << (form.getSign() ? "is" : "is not") << " signed, signed grade " << form.getSignGrade() << ", execute grade " << form.getExecGrade() << std::endl;
+	out << form.getName() << ", form " << (form.getSign() ? "is" : "is not") << " signed, signed grade " << form.getSignGrade() << ", execute grade " << form.getExecGrade();
 	return out;
 }
 

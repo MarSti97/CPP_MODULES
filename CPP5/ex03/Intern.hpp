@@ -9,6 +9,11 @@ class Intern
 {
     private :
         std::string forms[3];
+		std::string statments[3];
+		typedef AForm* (Intern::*form_ptr)(std::string);
+		AForm* makeShrubForm(std::string targ);
+		AForm* makeRobotForm(std::string targ);
+		AForm* makePresiForm(std::string targ);
     public :
         Intern();
         Intern(const Intern& copy);

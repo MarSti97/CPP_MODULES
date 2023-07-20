@@ -16,7 +16,7 @@ int main()
 	catch (std::exception& e){
 		std::cerr << e.what() << std::endl;
 	}
-
+	std::cout << "------ More tests ------" << std::endl;
 	f1 = Form("F1", 75, 75);
 	f1.beSigned(jim);
 	f1.beSigned(jim);

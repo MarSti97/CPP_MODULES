@@ -41,7 +41,7 @@ void	ShrubberyCreationForm::execute(Bureaucrat const& executor) const
 		throw AForm::GradeTooLowToExec();
 	else
 	{
-        std::ofstream file(this->targetName() + "_shrubbery");
+        std::ofstream file((this->targetName() + "_shrubbery").c_str());
 		if (file == NULL)
         {
             std::perror("Error: could not create a new file");

@@ -41,23 +41,24 @@ void	ShrubberyCreationForm::execute(Bureaucrat const& executor) const
 		throw AForm::GradeTooLowToExec();
 	else
 	{
-        std::ofstream file(this->targetName() + "_shrubbery");
-		if (file == NULL)
+		std::string filename = this->targetName() + "_shrubbery";
+        std::ofstream outfile(filename.c_str());
+		if (outfile == NULL)
         {
             std::perror("Error: could not create a new file");
-            file.close();
+            outfile.close();
             return ;
         }
-		file << "\n              ,@@@@@@@, " << std::endl;
-		file << "      ,,,.   ,@@@@@@/@@,  .oo8888o. " << std::endl;
-		file << "   ,&%%&%&&%,@@@@@/@@@@@@,8888\\88/8o " << std::endl;
-		file << "  ,%&\\%&&%&&%,@@@\\@@@/@@@88\\88888/88' " << std::endl;
-		file << "  %&&%&%&/%&&%@@\\@@/ /@@@88888\\88888' " << std::endl;
-		file << "  %&&%/ %&%%&&@@\\ V /@@' `88\\8 `/88' " << std::endl;
-		file << "  `&%\\ ` /%&'    |.|        \\ '|8' " << std::endl;
-		file << "      |o|        | |         | | " << std::endl;
-		file << "      |.|        | |         | | " << std::endl;
-		file << "    \\/ ._\\//_/__/  ,\\_//__\\_/.  \\_//__/_ " << std::endl;
-		file.close();
+		outfile << "\n              ,@@@@@@@, " << std::endl;
+		outfile << "      ,,,.   ,@@@@@@/@@,  .oo8888o. " << std::endl;
+		outfile << "   ,&%%&%&&%,@@@@@/@@@@@@,8888\\88/8o " << std::endl;
+		outfile << "  ,%&\\%&&%&&%,@@@\\@@@/@@@88\\88888/88' " << std::endl;
+		outfile << "  %&&%&%&/%&&%@@\\@@/ /@@@88888\\88888' " << std::endl;
+		outfile << "  %&&%/ %&%%&&@@\\ V /@@' `88\\8 `/88' " << std::endl;
+		outfile << "  `&%\\ ` /%&'    |.|        \\ '|8' " << std::endl;
+		outfile << "      |o|        | |         | | " << std::endl;
+		outfile << "      |.|        | |         | | " << std::endl;
+		outfile << "    \\/ ._\\//_/__/  ,\\_//__\\_/.  \\_//__/_ " << std::endl;
+		outfile.close();
 	}
 }

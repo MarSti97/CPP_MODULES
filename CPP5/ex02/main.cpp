@@ -4,7 +4,7 @@
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
 
-int main() // make and run more tests at school, will probably need the random number gen.
+int main()
 {
 	Bureaucrat jim;
 	Bureaucrat sheldon("Sheldon", 1);
@@ -30,5 +30,7 @@ int main() // make and run more tests at school, will probably need the random n
 	jim.executeForm(*cat);
 	sheldon.executeForm(*lenin);
 	delete home;
+	delete cat;
+	delete lenin;
 	return 0;
 }
