@@ -10,10 +10,12 @@ int main()
         std::cout << "----- Basic test -----" << std::endl;
         Base* random = generate();
         identify(random);
+		delete random;
     }
     {
         std::cout << "----- Reference test -----" << std::endl;
         Base* random2 = generate();
-        identify(random2);
+        identify(*random2);
+		delete random2;
     }
 }

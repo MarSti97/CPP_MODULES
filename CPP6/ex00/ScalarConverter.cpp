@@ -31,7 +31,7 @@ void    ScalarConverter::convert(std::string literal)
 		double_print(literal);
 }
 
-std::string getliteral(const char* type)
+std::string ScalarConverter::getliteral(const char* type)
 {
     int flag = 0;
     int neg = 0;
@@ -65,7 +65,7 @@ std::string getliteral(const char* type)
     return ("Error");
 }
 
-void	char_print(std::string input)
+void	ScalarConverter::char_print(std::string input) // check to solve for MAX
 {
 	char c = input[0];
 
@@ -75,7 +75,7 @@ void	char_print(std::string input)
 	std::cout << "double: " << static_cast<double> (c) << ".0" << std::endl;
 }
 
-void	int_print(std::string input)
+void	ScalarConverter::int_print(std::string input)
 {
 	int res = atoi(input.c_str());
 	char c = static_cast<char>(res);
@@ -88,7 +88,7 @@ void	int_print(std::string input)
 	std::cout << "double: " << static_cast<double> (res) << ".0" << std::endl;
 }
 
-void	float_print(std::string input)
+void	ScalarConverter::float_print(std::string input)
 {
 	if (input == "-inff" || input == "+inff" || input == "inff" || input == "nanf")
 	{
@@ -111,7 +111,7 @@ void	float_print(std::string input)
 	}
 }
 
-void	double_print(std::string input)
+void	ScalarConverter::double_print(std::string input)
 {
 	if (input == "-inf" || input == "+inf" || input == "inf" || input == "nan")
 	{
@@ -135,7 +135,7 @@ void	double_print(std::string input)
 	}
 }
 
-std::string beautify(std::string str)
+std::string ScalarConverter::beautify(std::string str)
 {
 	int pos = str.find(".");
 	std::string temp = str.substr(pos);

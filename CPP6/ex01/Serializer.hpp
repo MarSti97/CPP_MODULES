@@ -3,20 +3,19 @@
 
 #include <iostream>
 #include <string>
-#include <cstdint>
+#include <stdint.h>
 #include "data.hpp"
 
 class Serializer
 {
-    public :
+	private : 
         Serializer();
         Serializer(const Serializer& copy);
         ~Serializer();
-
         Serializer& operator = (const Serializer& copy);
-
-        uintptr_t	serialize(Data* ptr);
-		Data*		deserialize(uintptr_t raw);
+    public :
+        static uintptr_t	serialize(Data* ptr);
+		static Data*		deserialize(uintptr_t raw);
 };
 
 #endif

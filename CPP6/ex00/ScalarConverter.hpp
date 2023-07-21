@@ -9,22 +9,21 @@
 
 class ScalarConverter
 {
-    public :
+	private : 
         ScalarConverter();
         ScalarConverter(const ScalarConverter& copy);
         ~ScalarConverter();
-
         ScalarConverter& operator = (const ScalarConverter& copy);
-
-        void    convert(std::string literal);
+    public :
+        static void    		convert(std::string literal);
+		static std::string	getliteral(const char* type);
+		static void			char_print(std::string input);
+		static void			int_print(std::string input);
+		static void			float_print(std::string input);
+		static void			double_print(std::string input);
+		static std::string	beautify(std::string str);
 };
 
-std::string	getliteral(const char* type);
-void		char_print(std::string input);
-void		int_print(std::string input);
-void		float_print(std::string input);
-void		double_print(std::string input);
-std::string	beautify(std::string str);
 
 
 #endif

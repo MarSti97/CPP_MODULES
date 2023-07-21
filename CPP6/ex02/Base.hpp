@@ -3,6 +3,9 @@
 
 #include <iostream>
 #include <string>
+#include <cstdlib>
+#include <ctime>
+#include <exception>
 
 class Base
 {
@@ -13,6 +16,6 @@ class Base
 
 Base*	generate(void);
 void	identify(Base* p);
-// void	identify(Base& p);
+void	identify(Base& p);
 
 #endif

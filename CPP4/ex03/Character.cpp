@@ -47,7 +47,6 @@ Character& Character::operator = (const Character& copy)
 			else 
 				this->inventory[i] = NULL;
 		}
-		// this = update;
 	}
 	return *this;
 }
