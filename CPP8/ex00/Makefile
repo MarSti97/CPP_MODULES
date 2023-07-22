@@ -3,8 +3,8 @@ BIN = bin
 OBJ = $(SRC:%.cpp=${BIN}/%.o)
 FLAGS = -Wall -Werror -Wextra -Wshadow -g -std=c++98
 CC = c++
-NAME = templates
-INC = Array.hpp 
+NAME = find
+INC = easyfind.hpp 
 
 COLOUR =\033[0;32m
 END =\033[0m

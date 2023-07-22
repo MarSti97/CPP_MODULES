@@ -4,12 +4,6 @@
 #include <iostream>
 #include <string>
 
-template<typename T>
-int easyfind(T container, int i)
-{
-
-}
-
 class NotFound : public std::exception
 {
     public :
@@ -17,6 +11,17 @@ class NotFound : public std::exception
         virtual const char* what() const throw(){
             return ("Int was not found");
         }
+};
+
+template<typename T>
+int easyfind(T container, int i)
+{
+    typename T::iterator it;
+    for (it = container.begin(); it != container.end(); ++it)
+        if (*it == i)
+            return (*it);
+    throw NotFound();
 }
+
 
 #endif
