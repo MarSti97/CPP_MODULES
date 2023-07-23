@@ -2,6 +2,7 @@
 
 int main()
 {
+	std::cout << "----- Mutant Stack -----" << std::endl;
     {   
         MutantStack<int> mstack;
         mstack.push(5);
@@ -27,6 +28,7 @@ int main()
         std::stack<int> s(mstack);
     }
     std::cout << std::endl;
+	std::cout << "----- Simple list -----" << std::endl;
     {
         std::list<int> mstack;
         mstack.push_front(5);
@@ -52,6 +54,7 @@ int main()
         std::list<int> s(mstack);
     }
     std::cout << std::endl;
+	std::cout << "----- A Stack -----" << std::endl;
     {
         std::stack<int> mstack;
         mstack.push(5);

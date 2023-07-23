@@ -5,7 +5,7 @@
 
 Base::~Base()
 {
-	std::cout << "Base destructor" << std::endl;
+	// std::cout << "Base destructor" << std::endl;
 }
 
 Base*	generate(void)

@@ -65,7 +65,7 @@ std::string ScalarConverter::getliteral(const char* type)
     return ("Error");
 }
 
-void	ScalarConverter::char_print(std::string input) // check to solve for MAX
+void	ScalarConverter::char_print(std::string input)
 {
 	char c = input[0];
 
@@ -84,8 +84,8 @@ void	ScalarConverter::int_print(std::string input)
 	else
 		std::cout << "char: Non displayable" << std::endl;
 	std::cout << "int: " << res << std::endl;
-	std::cout << "float: " << static_cast<float> (res) << ".0f" << std::endl;
-	std::cout << "double: " << static_cast<double> (res) << ".0" << std::endl;
+	std::cout << "float: " << static_cast<float> (res) << beautify(input) << "f" << std::endl;
+	std::cout << "double: " << static_cast<double> (res) << beautify(input) << std::endl;
 }
 
 void	ScalarConverter::float_print(std::string input)
@@ -135,10 +135,18 @@ void	ScalarConverter::double_print(std::string input)
 	}
 }
 
-std::string ScalarConverter::beautify(std::string str)
+std::string ScalarConverter::beautify(std::string input)
 {
-	int pos = str.find(".");
-	std::string temp = str.substr(pos);
+	float val = atof(input.c_str());
+	std::stringstream sub;
+	sub << val;
+	std::string check = sub.str();
+	if (check.find_first_of("e") != std::string::npos)
+		return ("");
+	size_t pos = input.find('.');
+	if (pos == std::string::npos)
+		return (".0");
+	std::string temp = input.substr(pos);
 	if (temp.find_first_of("123456789") == std::string::npos)
 		return (".0");
 	return ("");
