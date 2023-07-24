@@ -1,10 +1,10 @@
-SRC = main.cpp
+SRC = main.cpp BitcoinExchange.cpp
 BIN = bin
 OBJ = $(SRC:%.cpp=${BIN}/%.o)
 FLAGS = -Wall -Werror -Wextra -Wshadow -g -std=c++98
 CC = c++
 NAME = btc
-INC = MutantStack.hpp 
+INC = BitcoinExchange.hpp 
 
 COLOUR =\033[0;32m
 END =\033[0m
