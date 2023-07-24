@@ -3,7 +3,7 @@ BIN = bin
 OBJ = $(SRC:%.cpp=${BIN}/%.o)
 FLAGS = -Wall -Werror -Wextra -Wshadow -g -std=c++98
 CC = c++
-NAME = find
+NAME = UltimateStack
 INC = MutantStack.hpp 
 
 COLOUR =\033[0;32m

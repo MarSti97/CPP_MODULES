@@ -1,10 +1,10 @@
-SRC = main.cpp Span.cpp
+SRC = main.cpp
 BIN = bin
 OBJ = $(SRC:%.cpp=${BIN}/%.o)
 FLAGS = -Wall -Werror -Wextra -Wshadow -g -std=c++98
 CC = c++
-NAME = TheSpan
-INC = Span.hpp 
+NAME = RPN
+INC = MutantStack.hpp 
 
 COLOUR =\033[0;32m
 END =\033[0m
