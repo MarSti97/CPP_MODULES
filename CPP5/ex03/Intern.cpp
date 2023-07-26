@@ -64,7 +64,7 @@ AForm*  Intern::makeForm(std::string _form, std::string _target)
 	if (i < 3)
 	{
 		std::cout << this->statments[i] << std::endl;
-		return ((this->*arr[i])(_target));
+		return ((*arr[i])(_target));
 	}
 	std::cerr << "Error: " << _form << " does not exist." << std::endl;
     return NULL;

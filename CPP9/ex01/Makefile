@@ -1,10 +1,10 @@
-SRC = main.cpp
+SRC = main.cpp RPN.cpp
 BIN = bin
 OBJ = $(SRC:%.cpp=${BIN}/%.o)
 FLAGS = -Wall -Werror -Wextra -Wshadow -g -std=c++98
 CC = c++
 NAME = RPN
-INC = MutantStack.hpp 
+INC = RPN.hpp 
 
 COLOUR =\033[0;32m
 END =\033[0m

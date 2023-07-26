@@ -70,8 +70,17 @@ void BitcoinExchange::makeCompare(std::map<std::string, double>& data, std::ifst
 			if (it != data.end())
 				std::cout << key << " => " << value << " = " << (value * it->second) << std::endl;
 			else
-				findClosest(data, key, value);
-			// if the date doesnt exist make a loop and do string compare to find closest date... see if that works
+			{
+				it = data.lower_bound(key);
+				if (it != data.end())
+					std::cout << it->first << " => " << value << " = " << (value * it->second) << std::endl;
+				else
+				{
+					--it;
+					std::cout << it->first << " => " << value << " = " << (value * it->second) << std::endl;
+				}
+
+			}
 		}
 		catch (std::exception& e){
 			std::cerr << e.what() << std::endl;
@@ -97,22 +106,22 @@ std::string BitcoinExchange::parseDate(std::string buffer)
 	return (buffer.substr(0, pos));
 }
 
-void BitcoinExchange::findClosest(std::map<std::string, double>& data, std::string key, double value)
-{
-	std::map<std::string, double>::iterator it = data.begin();
-	std::map<std::string, double>::iterator best;
-	size_t min = it->first.compare(key);
-	size_t comp;
-	for (++it; it != data.end(); ++it)
-	{
-		comp = it->first.compare(key);
-		if (comp < min) {
-			min = comp;
-			best = it;
-		}
-	}
-	std::cout << it.first() << " => " << value << " = " << (value * it->second) << std::endl;
-}
+// void BitcoinExchange::findClosest(std::map<std::string, double>& data, std::string key, double value)
+// {
+// 	std::map<std::string, double>::iterator it = data.begin();
+// 	std::map<std::string, double>::iterator best;
+// 	size_t min = it->first.compare(key);
+// 	size_t comp;
+// 	for (++it; it != data.end(); ++it)
+// 	{
+// 		comp = it->first.compare(key);
+// 		if (comp < min) {
+// 			min = comp;
+// 			best = it;
+// 		}
+// 	}
+// 	std::cout << it.first() << " => " << value << " = " << (value * it->second) << std::endl;
+// }
 
 
 BitcoinExchange::EmptyFile::EmptyFile() {}

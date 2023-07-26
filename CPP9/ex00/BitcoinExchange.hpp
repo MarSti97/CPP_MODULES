@@ -7,12 +7,6 @@
 #include <map>
 #include <cstdlib>
 
-// struct Datum {
-// 	int year;
-// 	int month;
-// 	int day;
-// };
-
 class BitcoinExchange
 {
 	private :
@@ -57,9 +51,5 @@ class BitcoinExchange
 			virtual const char* what() const throw();
 	};
 };
-
-// Datum 	createdatum(std::string date);
-// bool	comparedatum(Datum a, Datum b);
-// Datum	findclosest(std::map<Datum, double> data, Datum find);
 
 #endif
