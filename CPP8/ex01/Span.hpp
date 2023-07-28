@@ -7,6 +7,8 @@
 #include <exception>
 #include <algorithm>
 #include <cstdlib>
+#include <ctime>
+#include <climits>
 
 class Span
 {
@@ -30,19 +32,15 @@ class Span
         class SpanIsFull : public std::exception
         {
             public :
-                SpanIsFull() {}
-                virtual const char* what() const throw(){
-                    return ("You've reached the maximum of your array");
-                }
+                SpanIsFull();
+                virtual const char* what() const throw();
         };
         
         class NotEnoughElements : public std::exception
         {
             public :
-                NotEnoughElements() {}
-                virtual const char* what() const throw(){
-                    return ("The array is either empty or has only one element, cannot perform action.");
-                }
+                NotEnoughElements();
+                virtual const char* what() const throw();
         };
 };
 

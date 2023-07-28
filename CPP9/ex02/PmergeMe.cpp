@@ -29,7 +29,6 @@ double sortList(std::list<int>& list)
     // Step 1: Group elements into pairs and sort them pairwise
 	std::list<std::pair<int, int> > pairs;
 	std::list<int>::iterator it = list.begin();
-
 	while (it != list.end())
 	{
 		int a = *it++;
@@ -41,19 +40,8 @@ double sortList(std::list<int>& list)
 		int b = *it;
 		pairs.push_back(std::make_pair(std::min(a, b), std::max(a, b)));
 	}
-
-    while (it != list.end()) {
-        int first = *it++;
-        if (it == list.end()) {
-            result.push_back(first);
-            break;
-        }
-        int second = *it++;
-        result.push_back((first < second) ? first : second);
-        result.push_back((first < second) ? second : first);
-    }
     // Step 2: Recursively sort the pairs by their highest value
-    result = mergeInsertionSort(result);
+    result = margesortList();
     // Step 3: Insert the pend elements into the main chain
     std::list<int> mainChain;
     it = list.begin();

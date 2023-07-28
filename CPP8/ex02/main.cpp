@@ -65,5 +65,39 @@ int main()
 		std::cout << "BEGIN : " << *it << std::endl;
 		std::cout << "END : " << *--fin << std::endl;
     }
+	std::cout << "----- Copy tests -----" << std::endl;
+    {
+    	MutantStack<int> custom;
+		custom.push(1);
+		custom.push(2);
+		custom.push(3);
+		custom.push(4);
+		custom.push(5);
+		std::cout << "Original : ";
+		printStack(custom);
+		std::cout << std::endl;
+		std::cout << "Copy constructor : ";
+		MutantStack<int> copy(custom);
+		printStack(copy);
+		std::cout << std::endl;
+		custom.push(73);
+		custom.push(42);
+		printStack(custom);
+		std::cout << std::endl;
+		printStack(copy);
+		std::cout << std::endl;
+		std::cout << "Copy assigment : ";
+		custom = copy;
+		printStack(custom);
+		std::cout << std::endl;
+    }
     return 0;
+}
+
+void	printStack(MutantStack<int>& stack)
+{
+	MutantStack<int>::iterator it = stack.begin();
+	MutantStack<int>::iterator fin = stack.end();
+	while (it != fin)
+		std::cout << *it++ << " ";
 }

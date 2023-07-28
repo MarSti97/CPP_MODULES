@@ -34,4 +34,6 @@ class MutantStack : public std::stack<T, Container>
         const_reverse_iterator	rend() const {return this->c.end();}
 };
 
+void	printStack(MutantStack<int>& stack);
+
 #endif

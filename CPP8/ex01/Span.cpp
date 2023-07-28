@@ -8,9 +8,6 @@ Span::Span(const Span& copy) : N(copy.N)
 {
     vec.resize(N);
     std::copy(copy.vec.begin(), copy.vec.end(), vec.begin());
-    // std::vector<int>::iterator it;
-    // for (it = copy.vec.begin(); it != copy.vec.end(); ++it)
-    //     this->vec.push_back(*it);
 }
 
 Span::~Span() {}
@@ -82,4 +79,16 @@ void    Span::printSpan()
     for (it = vec.begin(); it != vec.end(); ++it)
         std::cout << *it << " ";
     std::cout << std::endl;
+}
+
+Span::SpanIsFull::SpanIsFull() {}
+
+const char* Span::SpanIsFull::what() const throw(){
+	return ("You've reached the maximum of your array");
+}
+
+Span::NotEnoughElements::NotEnoughElements() {}
+
+const char* Span::NotEnoughElements::what() const throw(){
+	return ("The array is either empty or has only one element, cannot perform action.");
 }
