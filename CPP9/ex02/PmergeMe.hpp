@@ -8,6 +8,9 @@
 
 void	fillList(std::list<int>& list, char** av);
 void	fillVector(std::vector<int>& vec, std::list<int>& list);
+std::list<std::pair<int, int> > merge(std::list<std::pair<int, int> > left, std::list<std::pair<int, int> > right);
+std::list<std::pair<int, int> > mergesortList(std::list<std::pair<int, int> > list);
+double sortList(std::list<int>& list);
 
 template<typename T>
 void print(T cont){
@@ -23,5 +26,7 @@ class InvalidInput : public std::exception
 		InvalidInput();
 		virtual const char* what() const throw();
 };
+
+void printList(std::list<std::pair<int, int> > list);
 
 #endif
