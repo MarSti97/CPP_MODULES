@@ -3,13 +3,12 @@
 
 #include <iostream>
 #include <string>
-#include <deque>
+#include <stack>
 #include <cstdlib>
 #include <exception>
 
-std::deque<int>	makeDeck(char* input);
-void			calculate(std::deque<int>& seq);
-double 			operation(double y, double x, std::deque<int>::iterator& front, std::deque<int>& seq);
+void	makeDeck(char* input);
+void	calculate(std::stack<double>& seq, int operation);
 
 class InvalidInput : public std::exception
 {

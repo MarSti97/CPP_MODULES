@@ -5,8 +5,7 @@ int main(int ac, char** av)
 	if (ac == 2)
 	{
 		try {
-			std::deque<int> seq = makeDeck(av[1]);
-			calculate(seq);
+			makeDeck(av[1]);
 		}
 		catch (std::exception& e) {
 			std::cerr << e.what() << std::endl;

@@ -1,8 +1,8 @@
 #include "RPN.hpp"
 
-std::deque<int>	makeDeck(char* input)
+void	makeDeck(char* input)
 {
-	std::deque<int> seq;
+	std::stack<double> seq;
 	std::string str(input);
 	
 	if (str.find_first_not_of("0123456789 -+/*") != std::string::npos)
@@ -12,11 +12,11 @@ std::deque<int>	makeDeck(char* input)
 		size_t pos = str.find(' ');
 		if (str.find(' ') == std::string::npos){
 			if (str.size() == 1 && str.find_first_of("-+/*") != std::string::npos)
-				seq.push_back(static_cast<int> (str[0]));
+				calculate(seq, static_cast<int> (str[0]));
 			else {
-				int res = atoi(str.c_str());
+				double res = static_cast<double> (atoi(str.c_str()));
 				if (res > -10 && res < 10)
-					seq.push_back(res);
+					seq.push(res);
 				else
 					throw OutOfRangeNumber();
 			}
@@ -24,69 +24,48 @@ std::deque<int>	makeDeck(char* input)
 		}
 		std::string sub = str.substr(0, pos);
 		if (sub.size() == 1 && sub.find_first_of("-+/*") != std::string::npos)
-				seq.push_back(static_cast<int> (sub[0]));
+				calculate(seq, static_cast<int> (str[0]));
 		else {
-			int res = atoi(sub.c_str());
+			double res = static_cast<double> (atoi(sub.c_str()));
 			if (res > -10 && res < 10)
-				seq.push_back(res);
+				seq.push(res);
 			else
 				throw OutOfRangeNumber();
 		}
 		str = str.substr(pos + 1);
 	}
-	return seq;
-}
-
-void calculate(std::deque<int>& seq)
-{
-	double x;
-	double y;
-	std::deque<int>::iterator front = seq.begin();
-	
-	if (*front < 10)
-		x = static_cast<double> (*front++);
-	else 
-		throw SequenceErrorRPN();
-	seq.pop_front();
-	while (front != seq.end())
-	{
-		if (*front < 10)
-			y = static_cast<double> (*front++);
-		else 
-			throw SequenceErrorRPN();
-		seq.pop_front();
-		x = operation(y, x, front, seq);
-	}
-	std::cout << x << std::endl;
-}
-
-double operation(double y, double x, std::deque<int>::iterator& front, std::deque<int>& seq)
-{
-	int op;
-	if (*front > 10) {
-		op = *front++;
-		seq.pop_front();
-	}
-	else if (seq.back() > 10) {
-		op = seq.back();
-		seq.pop_back();
-	}
+	if (seq.size() == 1)
+		std::cout << seq.top() << std::endl;
 	else
 		throw SequenceErrorRPN();
-	switch(op)
+}
+
+void calculate(std::stack<double>& seq, int operation)
+{
+	if (seq.size() < 2)
+		throw SequenceErrorRPN();
+	double x = seq.top();
+	seq.pop();
+	double y = seq.top();
+	seq.pop();
+	
+	switch(operation)
 	{
 		case 42:
-			return (y * x);
+			seq.push(y * x);
+			return ;
 		case 43:
-			return (y + x);
+			seq.push(y + x);
+			return ;
 		case 45:
-			return (x - y);
+			seq.push(y - x);
+			return ;
 		case 47:
-			return (x / y);
+			seq.push(y / x);
+			return ;
 		default :
 			throw InvalidInput();
 	}
-	return 0;
 }
 
 InvalidInput::InvalidInput() {}
@@ -98,7 +77,7 @@ const char* InvalidInput::what() const throw() {
 OutOfRangeNumber::OutOfRangeNumber(){}
 
 const char* OutOfRangeNumber::what() const throw(){
-	return ("Error: values cannot be double digits");
+	return ("Error: values cannot exceed +/-10");
 }
 
 SequenceErrorRPN::SequenceErrorRPN() {}
