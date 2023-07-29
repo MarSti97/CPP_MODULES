@@ -22,7 +22,7 @@ $(BIN)/%.o : %.cpp
 	@$(CC) $(FLAGS) -c $< -o $@
 
 run : all
-	@./$(NAME)
+	@./$(NAME) `shuf -i 1-100000 -n 3000 | tr "\n" " "`
 
 valgrind : all
 	@valgrind --leak-check=full --show-leak-kinds=all ./$(NAME)
