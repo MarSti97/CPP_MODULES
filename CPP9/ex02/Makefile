@@ -25,7 +25,7 @@ run : all
 	@./$(NAME) `shuf -i 1-100000 -n 3000 | tr "\n" " "`
 
 valgrind : all
-	@valgrind --leak-check=full --show-leak-kinds=all ./$(NAME)
+	@valgrind --leak-check=full --show-leak-kinds=all ./$(NAME) `shuf -i 1-100000 -n 3000 | tr "\n" " "`
 
 clean : 
 	@rm -rf $(OBJ) $(BIN)

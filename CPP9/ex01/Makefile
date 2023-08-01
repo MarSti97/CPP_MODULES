@@ -25,7 +25,7 @@ run : all
 	@./$(NAME)
 
 valgrind : all
-	@valgrind --leak-check=full --show-leak-kinds=all ./$(NAME)
+	@valgrind --leak-check=full --show-leak-kinds=all ./$(NAME) "1 2 * 2 / 2 + 5 * 6 - 1 3 * - 4 5 * * 8 /"
 
 clean : 
 	@rm -rf $(OBJ) $(BIN)

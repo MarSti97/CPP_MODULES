@@ -22,6 +22,7 @@ class BitcoinExchange
 		static void			makeCompare(std::map<std::string, double>& data, std::ifstream& input);
 		static std::string	parseDate(std::string key);
 		static void			findClosest(std::map<std::string, double>& data, std::string key, double value);
+		static void			searchData(std::map<std::string, double>& data, std::string buffer);
 
 	class EmptyFile : public std::exception
 	{
@@ -48,6 +49,13 @@ class BitcoinExchange
 	{
 		public :
 			InvalidDate();
+			virtual const char* what() const throw();
+	};
+
+	class DataBaseError : public std::exception
+	{
+		public :
+			DataBaseError();
 			virtual const char* what() const throw();
 	};
 };
