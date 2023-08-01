@@ -1,5 +1,5 @@
 
-# C++ Mudules
+# C++ Modules
 
 ### 10 Modules each designed to learn different conpects in C++. Similar style to the 42 piscine.
 
